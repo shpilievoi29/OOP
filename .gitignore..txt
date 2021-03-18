@@ -1,0 +1,1 @@
+ren gitignore.txt .gitignore
