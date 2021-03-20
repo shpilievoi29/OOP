@@ -19,7 +19,6 @@ class Employee:
         self.validate_email(email)
         self.save_email(email)
 
-
     def save_email(self, email):
         txt_email = open('save_email.txt', 'a+')
         txt_email.write(self.email)
@@ -32,8 +31,8 @@ class Employee:
             raise ValueError
         print('This email is in use')
 
-    def ework (self):
-       return "I come to the office"
+    def ework(self):
+        return "I come to the office"
 
     def check_salary(self, day_count):
         salary = self.salary_day * day_count
@@ -104,11 +103,9 @@ class Candidate:
         self.main_skill = main_skill
         self.main_skill_grade = main_skill_grade
 
-
-
-
     def work(self):
         raise UnableToWorkExceptionprint("I'm not hired yet")
+
 
 class Vacancy:
 
