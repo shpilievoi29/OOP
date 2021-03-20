@@ -1,30 +1,20 @@
+import datetime
+
+import traceback
+
 from models import Programmer
 
 from models import Recruiter
 
 from models import Employee
 
+from models import Candidate
 
-class Candidate:
+from models import Vacancy
 
-    def __init__(self, full_name, email, technologies, main_skill, main_skill_grade):
-        self.full_name = full_name
-        self.email = email
-        self.technologies = technologies
-        self.main_skill = main_skill
-        self.main_skill_grade = main_skill_grade
-
-
-class Vacancy:
-
-    def __init__(self, title, main_skill, main_skill_level):
-        self.title = title
-        self.main_skill = main_skill
-        self.main_skill_level = main_skill_level
 
 
 if __name__ == "__main__":
-
     igor = Programmer('Igor', 1000, 'igor@gmail.com', 'programmer', ['JS', 'Python', 'Delphi'])
 
     sasha = Programmer('Sasha', 130, 'sasha@gmai.com', 'programmer', ['Python'])
@@ -37,6 +27,21 @@ if __name__ == "__main__":
     java = Vacancy('Java', ['Java game developer'], ['Java - middle', 'Python - senior'])
 
     full_stack = Vacancy('Full-Stack', ['PHP', 'MySQL', 'JS'], ['PHP - senior', 'MySql - senior', 'JS -middle'])
+    oleg = Employee('Oleg', 120, 'privet@oleg.com', 'programmer')
+    zorg = Employee('Zorg', 110, 'privet@oleg.com', 'programmer')
+# print(Programmer.comparison_stack(igor, sasha))
+# print(Employee.check_salary(sasha, Employee.day_count))
+# print(sasha.__dict__)
+# print(igor.__dict__)
+# print(Programmer.comparison_stack(sasha, igor))
+# print(Employee.check_salary(igor, Employee.day_count))
+#Employee.validate_email(zorg, 'privet@oleg.com')
+#Candidate.work(john)
+try:
+    main()
 
-print(Programmer.comparison_stack(igor, sasha))
-print(Employee.check_salary(sasha, Employee.day_count))
+except Exception as err:
+    with open('logs.txt', 'a') as f:
+        message = '{}    {}:\n {} \n\n'.format(datetime.datetime.now(), err.__class__.__name__, traceback.format_exc())
+        f.write(message)
+        print('Error was logged!')

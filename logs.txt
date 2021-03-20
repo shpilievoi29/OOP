@@ -1,0 +1,21 @@
+2021-03-20 20:58:57.425582    NameError:
+ Traceback (most recent call last):
+  File "C:\documents\OOP\app.py", line 41, in <module>
+    main()
+NameError: name 'main' is not defined
+ 
+
+2021-03-20 20:59:18.894200    NameError:
+ Traceback (most recent call last):
+  File "C:\documents\OOP\app.py", line 41, in <module>
+    main()
+NameError: name 'main' is not defined
+ 
+
+2021-03-20 21:05:10.561325    NameError:
+ Traceback (most recent call last):
+  File "C:\documents\OOP\app.py", line 41, in <module>
+    main()
+NameError: name 'main' is not defined
+ 
+

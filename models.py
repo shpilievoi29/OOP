@@ -16,9 +16,24 @@ class Employee:
         self.email = email
         self.salary_day = salary_day
         self.position = position
+        self.validate_email(email)
+        self.save_email(email)
 
-    def ework(self):
-        return "I come to the office"
+
+    def save_email(self, email):
+        txt_email = open('save_email.txt', 'a+')
+        txt_email.write(self.email)
+        txt_email.write('\n')
+
+    def validate_email(self, email):
+        with open('save_email.txt', 'r') as f:
+            email = f.read()
+        if self.email == email:
+            raise ValueError
+        print('This email is in use')
+
+    def ework (self):
+       return "I come to the office"
 
     def check_salary(self, day_count):
         salary = self.salary_day * day_count
@@ -78,3 +93,26 @@ class Programmer(Employee):
         position = "programmer"
         tech_stack = {self.tech_stack + other.tech_stack}
         return Programmer(name, salary_day, email, position, tech_stack)
+
+
+class Candidate:
+
+    def __init__(self, full_name, email, technologies, main_skill, main_skill_grade):
+        self.full_name = full_name
+        self.email = email
+        self.technologies = technologies
+        self.main_skill = main_skill
+        self.main_skill_grade = main_skill_grade
+
+
+
+
+    def work(self):
+        raise UnableToWorkExceptionprint("I'm not hired yet")
+
+class Vacancy:
+
+    def __init__(self, title, main_skill, main_skill_level):
+        self.title = title
+        self.main_skill = main_skill
+        self.main_skill_level = main_skill_level
