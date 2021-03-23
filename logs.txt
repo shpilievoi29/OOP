@@ -1,21 +1,18 @@
-2021-03-20 20:58:57.425582    NameError:
+2021-03-23 07:54:31.562249    NameError:
  Traceback (most recent call last):
-  File "C:\documents\OOP\app.py", line 41, in <module>
-    main()
-NameError: name 'main' is not defined
- 
+  File "C:\documents\OOP\app.py", line 39, in <module>
+    Candidate.work(john)
+  File "C:\documents\OOP\models.py", line 109, in work
+    raise UnableToWorkExceptionprint("I'm not hired yet")
+NameError: name 'UnableToWorkExceptionprint' is not defined
 
-2021-03-20 20:59:18.894200    NameError:
+ 
+2021-03-23 07:54:31.568757    ValueError:
  Traceback (most recent call last):
-  File "C:\documents\OOP\app.py", line 41, in <module>
-    main()
-NameError: name 'main' is not defined
- 
+  File "C:\documents\OOP\app.py", line 45, in <module>
+    Employee.validate_email(oleg, "privet@oleg.com")
+  File "C:\documents\OOP\models.py", line 28, in validate_email
+    raise ValueError('email is in use')
+ValueError: email is in use
 
-2021-03-20 21:05:10.561325    NameError:
- Traceback (most recent call last):
-  File "C:\documents\OOP\app.py", line 41, in <module>
-    main()
-NameError: name 'main' is not defined
  
-

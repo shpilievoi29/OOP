@@ -16,20 +16,22 @@ class Employee:
         self.email = email
         self.salary_day = salary_day
         self.position = position
-        self.validate_email(email)
         self.save_email(email)
 
     def save_email(self, email):
-        txt_email = open('save_email.txt', 'a+')
+        txt_email = open('save_email.txt', 'a')
         txt_email.write(self.email)
         txt_email.write('\n')
 
     def validate_email(self, email):
-        with open('save_email.txt', 'r') as f:
-            email = f.read()
-        if self.email == email:
-            raise ValueError
-        print('This email is in use')
+        if email in self.temp_list_email():
+            raise ValueError('email is in use')
+
+    def temp_list_email(self):
+        with open('emails', 'a+') as f:
+            f.seek(0)
+            data = f.read()
+        return data.split('\n')
 
     def ework(self):
         return "I come to the office"
