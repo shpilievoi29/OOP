@@ -34,7 +34,7 @@ class Employee:
         with open('save_email.txt') as f:
             line_text = f.read()
             line_text = line_text.split('\n')
-            if email not in self.line_text:
+            if email  in line_text:
                 raise ValueError('email is in use')
 
     def ework(self):
