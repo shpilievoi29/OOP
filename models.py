@@ -18,8 +18,6 @@ class Employee:
         self.position = position
         self.save_email(email)
 
-
-
     def __init__(self, name, salary_day, email, position):
         self.name = name
         self.email = email
