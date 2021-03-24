@@ -1,2 +1,19 @@
 
+2021-03-24 08:14:31.412289    NameError:
+ Traceback (most recent call last):
+  File "C:\documents\OOP\app.py", line 37, in <module>
+    Candidate.work(john)
+  File "C:\documents\OOP\models.py", line 115, in work
+    raise UnableToWorkExceptionPrint("I'm not hired yet")
+NameError: name 'UnableToWorkExceptionPrint' is not defined
+
+ 
+2021-03-24 08:14:31.414283    AttributeError:
+ Traceback (most recent call last):
+  File "C:\documents\OOP\app.py", line 45, in <module>
+    Employee.validate_email(oleg, "privet@oleg.com")
+  File "C:\documents\OOP\models.py", line 39, in validate_email
+    if email not in self.line_text:
+AttributeError: 'Employee' object has no attribute 'line_text'
+
  
