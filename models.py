@@ -110,7 +110,7 @@ class Candidate:
         self.main_skill_grade = main_skill_grade
 
     def work(self):
-        raise UnableToWorkExceptionPrint("I'm not hired yet")
+        raise UnableToWorkException("I'm not hired yet")
 
 
 class Vacancy:
