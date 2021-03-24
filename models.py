@@ -18,20 +18,26 @@ class Employee:
         self.position = position
         self.save_email(email)
 
+
+
+    def __init__(self, name, salary_day, email, position):
+        self.name = name
+        self.email = email
+        self.salary_day = salary_day
+        self.position = position
+        self.save_email(email)
+
     def save_email(self, email):
         txt_email = open('save_email.txt', 'a')
         txt_email.write(self.email)
         txt_email.write('\n')
 
     def validate_email(self, email):
-        if email in self.temp_list_email():
-            raise ValueError('email is in use')
-
-    def temp_list_email(self):
-        with open('emails', 'a+') as f:
-            f.seek(0)
-            data = f.read()
-        return data.split('\n')
+        with open('save_email.txt') as f:
+            line_text = f.read()
+            line_text = line_text.split('\n')
+            if email not in self.line_text:
+                raise ValueError('email is in use')
 
     def ework(self):
         return "I come to the office"
@@ -106,7 +112,7 @@ class Candidate:
         self.main_skill_grade = main_skill_grade
 
     def work(self):
-        raise UnableToWorkExceptionprint("I'm not hired yet")
+        raise UnableToWorkExceptionPrint("I'm not hired yet")
 
 
 class Vacancy:
