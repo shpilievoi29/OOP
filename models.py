@@ -1,22 +1,33 @@
+import requests
+
+import csv
+
 from datetime import date, timedelta
 
 
 class Employee:
-    now = date.today()
-    month_start = date(now.year, now.month, 1)
-    weekend = [5, 6]
-    diff = (now - month_start).days + 1
-    day_count = 0
-    for day in range(diff):
-        if (month_start + timedelta(day)).weekday() not in weekend:
-            day_count += 1
-
     def __init__(self, name, salary_day, email, position):
         self.name = name
         self.email = email
         self.salary_day = salary_day
         self.position = position
         self.save_email(email)
+
+    @staticmethod
+    def check_days():
+        now = date.today()
+        month_start = date(now.year, now.month, 1)
+        weekend = [5, 6]
+        diff = (now - month_start).days + 1
+        day_count = 0
+        for day in range(diff):
+            if (month_start + timedelta(day)).weekday() not in weekend:
+                day_count += 1
+        return day_count
+
+    @property
+    def full_name(self):
+        return f"{__class__.__name__}, {self.name}, {Employee.check_days()} "
 
     def __init__(self, name, salary_day, email, position):
         self.name = name
@@ -34,7 +45,7 @@ class Employee:
         with open('save_email.txt') as f:
             line_text = f.read()
             line_text = line_text.split('\n')
-            if email  in line_text:
+            if email in line_text:
                 raise ValueError('email is in use')
 
     def ework(self):
@@ -111,6 +122,21 @@ class Candidate:
 
     def work(self):
         raise UnableToWorkException("I'm not hired yet")
+
+    @classmethod
+    def create_candidate(cls, f):
+        name_list = []
+        with open('employees.csv', 'r') as f:
+            file_data = [row for row in csv.DictReader(f)]
+            for row in file_data:
+                full_name = row['Full Name'].split(' ', 1)
+                email = row['Email']
+                technologies = row['Technologies'].split('|')
+                main_skill = row['Main Skill']
+                main_skill_grade = row['Main Skill Grade']
+                name_list.append(cls(full_name=full_name, email=email, technologies=technologies, main_skill=main_skill,
+                                     main_skill_grade=main_skill_grade))
+            return print(name_list)
 
 
 class Vacancy:

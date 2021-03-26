@@ -28,7 +28,7 @@ if __name__ == '__main__':
     oleg = Employee('Oleg', 120, 'privet@oleg.com', 'programmer')
 
     # print(Programmer.comparison_stack(igor, sasha))
-    # print(Employee.check_salary(sasha, Employee.day_count))
+    #print(Employee.check_salary(sasha, Employee.day_count))
     # print(sasha.__dict__)
     # print(igor.__dict__)
     # print(Programmer.comparison_stack(sasha, igor))
@@ -48,3 +48,8 @@ except Exception as err:
     with open('logs.txt', 'a') as f:
         message = '{}    {}:\n {}\n \n'.format(datetime.datetime.now(), err.__class__.__name__, traceback.format_exc())
         f.write(message)
+
+    vasia = Programmer('Igor', 1000, 'igor@gmail.com', 'programmer', ['JS', 'Python', 'Delphi'])
+    print(vasia.full_name)
+
+zet = Candidate.create_candidate('employees.csv')
